@@ -7,12 +7,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Cidades
-{
-    char nome[MAX_NOMEN];
-    char eventos[MAX_NOMENE];
-};
 
-char Armarzenar_Cidades();
+void Armazenar_Eventos(char *evento);
+
+void Armazenar_Cidades(char *cidade);
+
 
 #endif

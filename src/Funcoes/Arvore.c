@@ -1,4 +1,5 @@
-#include "../include/Arvore.h"
+#include "../../include/Arvore.h"
+#include "../../include/Cidades.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -6,14 +7,14 @@
 void inOrdem(TNo *x){
     if (x != NULL){
         inOrdem(x -> esq);
-        printf("%d ",x -> item.chave);
+        printf("Cidade: %s\nEventos: %s - Nota: %.1f.\n\n",x -> item.cidade.nome, x -> item.cidade.eventos[0].nomenclatura, x -> item.cidade.eventos[0].avaliacao);
         inOrdem(x -> dir);
     }
 }
 
 void preOrdem(TNo *x){
     if (x != NULL){
-        printf("%d ", x -> item.chave);
+        printf("Cidade: %s\nEventos: %s - Nota: %.1f.\n\n",x -> item.cidade.nome, x -> item.cidade.eventos[0].nomenclatura, x -> item.cidade.eventos[0].avaliacao);
         preOrdem(x -> esq);
         preOrdem(x -> dir);
     }
@@ -23,19 +24,50 @@ void posOrdem(TNo *x){
     if (x != NULL){
         posOrdem(x -> esq);
         posOrdem(x -> dir);
-        printf("%d ", x -> item.chave);
+        printf("Cidade: %s\nEventos: %s - Nota: %.1f.\n\n",x -> item.cidade.nome, x -> item.cidade.eventos[0].nomenclatura, x -> item.cidade.eventos[0].avaliacao);
     }
 }
 
 TNo *Pesquisar(TNo *x, TItem Item){
-    if((x == NULL) || (x -> item.chave == Item.chave)){
+    if((x == NULL) || (x -> item.cidade.nome == Item.cidade.nome)){
         return x;
     }
 
-    if(Item.chave < x -> item.chave){
+    if(Item.cidade.nome < x -> item.cidade.nome){
         return Pesquisar(x -> esq, Item);
     }
-    else if(Item.chave > x -> item.chave){
+    else if(Item.cidade.nome > x -> item.cidade.nome){
         return Pesquisar(x -> dir, Item);
     }
+}
+
+void Inserir(TNo **x, TNo *pai, TItem Item){
+    if((*x) == NULL){
+        (*x) = criaNo(Item);
+        if(pai != NULL){
+            (*x) -> pai = pai;
+        }
+        return;
+    }
+    if((*x) -> item.cidade.eventos->avaliacao > Item.cidade.eventos->avaliacao){
+        Inserir(&(*x) -> esq, (*x), Item);
+        return;
+    }
+    else{
+        Inserir(&(*x) -> dir, (*x), Item);
+        return;
+    }
+}
+
+TNo *criaNo(TItem Item){
+    TNo *novo = (TNo *)malloc(sizeof(TNo));
+    if(novo == NULL){
+        printf("Erro de alocação\n");
+    }
+
+    novo -> item = Item;
+    novo -> esq = NULL;
+    novo -> dir = NULL;
+    novo -> pai = NULL;
+    return novo;
 }

@@ -3,15 +3,26 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+#include <string.h>
 
 
 int main(){
 
-    char cidades;
-    cidades = Armarzenar_Cidades();
+    srand(time(NULL));
 
-    printf("%s", cidades);
+   TCidades cidades[5];
+   TArvore Arvore;
+   Arvore.raiz = NULL;
 
 
-
+   preencherCidades(cidades);
+   for (int i = 0; i < 5; i++) {
+        TItem novoItem;
+        novoItem.cidade = cidades[i]; 
+        Inserir(&Arvore.raiz, NULL, novoItem);
+    }
+    inOrdem(Arvore.raiz);
+    
+    return 0;
 }
