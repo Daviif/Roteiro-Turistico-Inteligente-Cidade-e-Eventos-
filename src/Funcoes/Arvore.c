@@ -39,6 +39,7 @@ TNo *Pesquisar(TNo *x, TItem Item){
     else if(Item.cidade.nome > x -> item.cidade.nome){
         return Pesquisar(x -> dir, Item);
     }
+    return NULL;
 }
 
 void Inserir(TNo **x, TNo *pai, TItem Item){

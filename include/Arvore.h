@@ -14,7 +14,7 @@ typedef struct Eventos
 typedef struct Cidades
 {
     char nome[MAX_NOMEN];
-    TEventos eventos[2];
+    TEventos eventos[3];
 
 } TCidades; 
 typedef struct item{

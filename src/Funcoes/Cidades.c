@@ -44,7 +44,7 @@ void preencherCidades(TCidades cidades[]){
     for (int i = 0; i < 5; i++) {
         Armazenar_Cidades(cidades[i].nome);  
         
-        for (int j = 0; j < 2; j++) {
+        for (int j = 0; j < 3; j++) {
             Armazenar_Eventos(cidades[i].eventos[j].nomenclatura);  
             cidades[i].eventos[j].avaliacao = (rand() % 101) / 10.0; 
         }
