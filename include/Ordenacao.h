@@ -20,5 +20,8 @@ void MergeSort(TCidades cidades[]);
 
 void HeapSort(TCidades cidades[]);
 
+void trocar(TCidades* a, TCidades* b);
+
+void Particao(TCidades cidades[]);
 
 #endif

@@ -1,25 +1,16 @@
 #ifndef _ARVORE_B
 #define _ARVORE_B
-#define MAX_NOMEN 100
-#define MAX_NOMENE 500
+
+#include "Cidades.h"
 
 #include <stdio.h>
 #include <stdlib.h>
-typedef struct Eventos
-{
-    char nomenclatura[MAX_NOMENE];
-    float avaliacao;
-} TEventos;
 
-typedef struct Cidades
-{
-    char nome[MAX_NOMEN];
-    TEventos eventos[3];
 
-} TCidades; 
 typedef struct item{
     TCidades cidade;
 }TItem;
+
 typedef struct no{
     TItem item;
     struct no *pai;
