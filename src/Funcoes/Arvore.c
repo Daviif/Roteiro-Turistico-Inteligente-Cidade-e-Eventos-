@@ -7,7 +7,11 @@
 void inOrdem(TNo *x){
     if (x != NULL){
         inOrdem(x -> esq);
-        printf("Cidade: %s\nEventos: %s - Nota: %.1f.\n\n",x -> item.cidade.nome, x -> item.cidade.eventos[0].nomenclatura, x -> item.cidade.eventos[0].avaliacao);
+        printf("\nCidade: %s\n", x -> item.cidade.nome);
+        printf("Eventos: \n");
+        for (int j = 0; j < 3; j++){
+        printf(" %s - Nota: %.1f\n", x -> item.cidade.eventos[j].nomenclatura, x -> item.cidade.eventos[j].avaliacao);
+        }
         inOrdem(x -> dir);
     }
 }

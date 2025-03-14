@@ -2,6 +2,8 @@
 #define _ARVORE_B
 #define MAX_NOMEN 100
 #define MAX_NOMENE 500
+#define MAX_EV 3
+#define MAX_CID 5
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,7 +16,7 @@ typedef struct Eventos
 typedef struct Cidades
 {
     char nome[MAX_NOMEN];
-    TEventos eventos[3];
+    TEventos eventos[MAX_EV];
 
 } TCidades; 
 typedef struct item{

@@ -13,21 +13,21 @@ int main(){
 
     srand(time(NULL));
 
-    TCidades cidades[5];
+    TCidades cidades[MAX_CID];
     TArvore Arvore;
     Arvore.raiz = NULL;
     bool exit = false;
 
     printf("Cidades geradas na Arvore.\n");
     preencherCidades(cidades);
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < MAX_CID; i++) {
         TItem novoItem;
         novoItem.cidade = cidades[i]; 
         Inserir(&Arvore.raiz, NULL, novoItem);
 
         printf("\nCidade: %s\n", cidades[i].nome);
         printf("Eventos: \n");
-        for (int j = 0; j < 3; j++)
+        for (int j = 0; j < MAX_EV; j++)
         {
             printf(" %s - Nota: %.1f\n", cidades[i].eventos[j].nomenclatura, cidades[i].eventos[j].avaliacao);
         }

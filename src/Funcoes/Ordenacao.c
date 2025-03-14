@@ -6,11 +6,29 @@
 #include <time.h>
 #include <string.h>
 
-void BubbleSort(TCidades cidades[]){
+
+void BubbleSort(TCidades *cidades){
     TCidades aux;
-    for (int i = 0; i < 5 - 1; i++){
-        for (int j = 0; j < 5 - i - 1; j++){
-            if (cidades[j].eventos[j].avaliacao < cidades[j + 1].eventos[0].avaliacao){
+    
+    for (int i = 0; i < MAX_CID - 1; i++){
+        for (int j = 0; j < MAX_CID - i - 1; j++){
+
+            float melhor_nota_cidade_j = 0;
+            float melhor_nota_cidade_j_mais_1 = 0;
+            
+            for (int k = 0; k < MAX_EV; k++){
+                if (cidades[j].eventos[k].avaliacao > melhor_nota_cidade_j){
+                    melhor_nota_cidade_j = cidades[j].eventos[k].avaliacao;
+                }
+            }
+            
+            for (int k = 0; k < MAX_EV; k++){
+                if (cidades[j+1].eventos[k].avaliacao > melhor_nota_cidade_j_mais_1){
+                    melhor_nota_cidade_j_mais_1 = cidades[j+1].eventos[k].avaliacao;
+                }
+            }
+            
+            if (melhor_nota_cidade_j < melhor_nota_cidade_j_mais_1){
                 aux = cidades[j];
                 cidades[j] = cidades[j + 1];
                 cidades[j + 1] = aux;
@@ -18,14 +36,13 @@ void BubbleSort(TCidades cidades[]){
         }
     }
 
-    for (int i = 0; i < 5; i++){
+    for (int i = 0; i < MAX_CID; i++){
         printf("\nCidade: %s\n", cidades[i].nome);
         printf("Eventos: \n");
-        for (int j = 0; j < 3; j++)
+        for (int j = 0; j < MAX_EV; j++)
         {
             printf(" %s - Nota: %.1f\n", cidades[i].eventos[j].nomenclatura, cidades[i].eventos[j].avaliacao);
         }
-        
     }
 }
 
