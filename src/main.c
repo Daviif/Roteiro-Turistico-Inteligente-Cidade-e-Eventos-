@@ -1,5 +1,6 @@
 #include "./Funcoes/Arvore.c"
 #include "./Funcoes/Cidades.c"
+#include "./Funcoes/Eventos.c"
 #include "./Funcoes/Ordenacao.c"
 
 #include <stdio.h>
@@ -29,7 +30,7 @@ int main(){
         printf("Eventos: \n");
         for (int j = 0; j < MAX_EV; j++)
         {
-            printf(" %s - Nota: %.1f\n", cidades[i].eventos[j].nomenclatura, cidades[i].eventos[j].avaliacao);
+            printf(" %s - Nota: %.1f\n", cidades[i].eventos[j].nomeclatura, cidades[i].eventos[j].avaliacao);
         }
         
     }
@@ -40,14 +41,12 @@ int main(){
         printf("\n1 - Visualizacao - Listar em Ordem\n2 - Metodos de Ordenacao\n3 - Buscar na Arvore\n5 - Navegar na arvore\n6 - Sair\n");
         int opcao;
         scanf("%d", &opcao);
-        switch (opcao)
-        {
+        switch (opcao){
             case 1:
                 printf("1 - Listar inOrdem\n2 - Listar em Pre-Ordem\n3 - Listar em Pos-Ordem\n");
                 int opcao2;
                 scanf("%d", &opcao2);
-                switch (opcao2)
-                {
+                switch (opcao2){
                     case 1:
                         inOrdem(Arvore.raiz);
                         break;
@@ -65,8 +64,7 @@ int main(){
                 printf("\n1 - Bubble Sort\n2 - Selection Sort\n3 - Insertion Sort\n4 - Shell Sort\n5 - Quick Sort\n6 - Merge Sort\n7 - Heap Sort\n");
                 int opcao3;
                 scanf("%d", &opcao3);
-                switch (opcao3)
-                {
+                switch (opcao3){
                     case 1:
                         BubbleSort(cidades);
                         break;
@@ -83,14 +81,15 @@ int main(){
                         QuickSort(cidades);
                         break;
                     case 6:
-                        MergeSort(cidades);
+                        //MergeSort(cidades);
                         break;
                     case 7:
-                        HeapSort(cidades);
+                        //HeapSort(cidades);
                         break;
                     default:
                         break;
                 }
+                break;
             case 3:
                 break;
             case 4:

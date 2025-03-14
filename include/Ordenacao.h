@@ -1,5 +1,7 @@
 #ifndef _ORDENACAO
 #define _ORDENACAO
+#define MAX 5
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -20,5 +22,8 @@ void MergeSort(TCidades cidades[]);
 
 void HeapSort(TCidades cidades[]);
 
+void trocar(TCidades* a, TCidades* b);
+
+int Particao(TCidades cidades[]);
 
 #endif

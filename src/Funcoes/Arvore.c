@@ -1,5 +1,7 @@
 #include "../../include/Arvore.h"
-#include "../../include/Cidades.h"
+
+
+ 
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,7 +12,7 @@ void inOrdem(TNo *x){
         printf("\nCidade: %s\n", x -> item.cidade.nome);
         printf("Eventos: \n");
         for (int j = 0; j < 3; j++){
-        printf(" %s - Nota: %.1f\n", x -> item.cidade.eventos[j].nomenclatura, x -> item.cidade.eventos[j].avaliacao);
+        printf(" %s - Nota: %.1f\n", x -> item.cidade.eventos[j].nomeclatura, x -> item.cidade.eventos[j].avaliacao);
         }
         inOrdem(x -> dir);
     }
@@ -18,7 +20,7 @@ void inOrdem(TNo *x){
 
 void preOrdem(TNo *x){
     if (x != NULL){
-        printf("Cidade: %s\nEventos: %s - Nota: %.1f.\n\n",x -> item.cidade.nome, x -> item.cidade.eventos[0].nomenclatura, x -> item.cidade.eventos[0].avaliacao);
+        printf("Cidade: %s\nEventos: %s - Nota: %.1f.\n\n",x -> item.cidade.nome, x -> item.cidade.eventos[0].nomeclatura, x -> item.cidade.eventos[0].avaliacao);
         preOrdem(x -> esq);
         preOrdem(x -> dir);
     }
@@ -28,7 +30,7 @@ void posOrdem(TNo *x){
     if (x != NULL){
         posOrdem(x -> esq);
         posOrdem(x -> dir);
-        printf("Cidade: %s\nEventos: %s - Nota: %.1f.\n\n",x -> item.cidade.nome, x -> item.cidade.eventos[0].nomenclatura, x -> item.cidade.eventos[0].avaliacao);
+        printf("Cidade: %s\nEventos: %s - Nota: %.1f.\n\n",x -> item.cidade.nome, x -> item.cidade.eventos[0].nomeclatura, x -> item.cidade.eventos[0].avaliacao);
     }
 }
 

@@ -1,27 +1,21 @@
 #ifndef _ARVORE_B
 #define _ARVORE_B
-#define MAX_NOMEN 100
-#define MAX_NOMENE 500
-#define MAX_EV 3
+
 #define MAX_CID 5
+#define MAX_EV 3
 
-#include <stdio.h>
-#include <stdlib.h>
-typedef struct Eventos
-{
-    char nomenclatura[MAX_NOMENE];
-    float avaliacao;
-} TEventos;
+#include "Eventos.h"
 
-typedef struct Cidades
-{
-    char nome[MAX_NOMEN];
+typedef struct cidade{
+    char nome[100];
     TEventos eventos[MAX_EV];
+} TCidades;
 
-} TCidades; 
+
 typedef struct item{
     TCidades cidade;
 }TItem;
+
 typedef struct no{
     TItem item;
     struct no *pai;
@@ -46,6 +40,6 @@ void Inserir(TNo **x, TNo *pai, TItem Item);
 
 TNo *criaNo(TItem Item);
 
-
+void preencherCidades(TCidades cidades[]);
 
 #endif
